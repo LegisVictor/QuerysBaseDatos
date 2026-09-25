@@ -1,0 +1,30 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT recursos_id, json_value(RECURSOS_data, '$.parrafoini'),  json_value(RECURSOS_data, '$.parrafofin'),*
+  FROM [legisxperta].[dbo].[OBR_RECURSOS] WHERE RECURSOS_CONTENT_OPTIMUS = 'PROTRIBU' and 
+  isjson(RECURSOS_data) > 0 
+  and RECURSOS_ID in ('EECDF397-F9A9-EC11-910D-005056B0790B','C920C907-4E67-EC11-9110-005056B046FE'
+) order by 1 desc 
+
+
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+select RECURSOS_DATA, REPLACE(RECURSOS_DATA, 'xprotribu.040cb8068a3d47e2a3faaa288dfb7619', 'xprotribu.bd381cce563a47eaa6c4272ce5425986') from  [legisxperta].[dbo].[OBR_RECURSOS]
+ WHERE RECURSOS_CONTENT_OPTIMUS = 'PROTRIBU' and  RECURSOS_ID in ('C920C907-4E67-EC11-9110-005056B046FE')
+
+select RECURSOS_DATA, REPLACE(RECURSOS_DATA, 'xprotribu.23c7d1b4e53a4378a48f583c84247e79','xprotribu.facbcd2b384e0186e0530a010182dd33') FROM  [legisxperta].[dbo].[OBR_RECURSOS] 
+WHERE RECURSOS_CONTENT_OPTIMUS = 'PROTRIBU' and  RECURSOS_ID in ('EECDF397-F9A9-EC11-910D-005056B0790B')
+
+
+
+/****** UPDATE ******/
+
+
+
+
+/*
+UPDATE [legisxperta].[dbo].[OBR_RECURSOS]  SET RECURSOS_DATA =  REPLACE(RECURSOS_DATA, 'xprotribu.040cb8068a3d47e2a3faaa288dfb7619', 'xprotribu.bd381cce563a47eaa6c4272ce5425986')   
+ WHERE RECURSOS_CONTENT_OPTIMUS = 'PROTRIBU' and  RECURSOS_ID in ('C920C907-4E67-EC11-9110-005056B046FE'); 
+
+UPDATE [legisxperta].[dbo].[OBR_RECURSOS]  SET RECURSOS_DATA =  REPLACE(RECURSOS_DATA, 'xprotribu.23c7d1b4e53a4378a48f583c84247e79','xprotribu.facbcd2b384e0186e0530a010182dd33') 
+WHERE RECURSOS_CONTENT_OPTIMUS = 'PROTRIBU' and  RECURSOS_ID in ('EECDF397-F9A9-EC11-910D-005056B0790B'); 
+*/
